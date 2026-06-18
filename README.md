@@ -102,6 +102,15 @@
 <!-- Custom Orange Divider Line -->
 <img src="https://capsule-render.vercel.app/api?type=rect&color=e65c00&height=3&width=100%" alt="Divider Line" />
 
+## 📊 Automated Info-graphics (Daily Updated)
+
+<div align="center">
+  <img src="github-metrics.svg" alt="Vagabond404's Daily Metrics" width="450" />
+</div>
+
+<!-- Custom Orange Divider Line -->
+<img src="https://capsule-render.vercel.app/api?type=rect&color=e65c00&height=3&width=100%" alt="Divider Line" />
+
 ## 🔗 Let's Connect!
 
 <div align="center">

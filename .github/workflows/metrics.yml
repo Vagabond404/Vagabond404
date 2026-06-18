@@ -1,0 +1,58 @@
+name: GitHub Metrics
+
+on:
+  # Schedule updates daily at midnight
+  schedule:
+    - cron: "0 0 * * *"
+  # Allow manual trigger from the Actions tab
+  workflow_dispatch:
+  # Trigger when pushing to main/master branch
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  github-metrics:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Generate GitHub Profile Metrics
+        uses: lowlighter/metrics@latest
+        with:
+          # Your GitHub token stored in repository secrets
+          token: ${{ secrets.METRICS_TOKEN }}
+          
+          # Options
+          user: Vagabond404
+          template: classic
+          filename: github-metrics.svg
+          
+          # Content configuration (disabled header to prevent duplication, keeping only raw stats)
+          base: activity, community, repositories
+          
+          # Disabled plugins that caused errors or duplication
+          plugin_languages: no
+          plugin_achievements: no
+          plugin_habits: no
+
+          # Theme and custom CSS styling to match the beige/orange palette
+          config_theme: github-light
+          extras_css: |
+            svg {
+              background: #faf6ee !important;
+              border-radius: 8px !important;
+            }
+            .header, .activity, .community, .repositories {
+              color: #4a3b32 !important;
+            }
+            h2, h3, .title, .text-bold {
+              color: #e65c00 !important;
+            }
+            .icon, svg path, svg circle {
+              fill: #ff6a00 !important;
+            }
+            .field, .desc, .meta {
+              color: #7a6a5a !important;
+            }
